@@ -75,6 +75,8 @@ class HeatMapPage extends StatelessWidget {
 
   final bool? showText;
 
+  final bool showWeekText;
+
   HeatMapPage({
     Key? key,
     required this.colorMode,
@@ -90,6 +92,7 @@ class HeatMapPage extends StatelessWidget {
     this.onClick,
     this.margin,
     this.showText,
+    this.showWeekText = true,
   })  : _dateDifferent = endDate.difference(startDate).inDays,
         maxValue = DatasetsUtil.getMaxValue(datasets),
         super(key: key);
@@ -146,13 +149,14 @@ class HeatMapPage extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Show week labels to left side of heatmap.
-            HeatMapWeekText(
-              margin: margin,
-              fontSize: fontSize,
-              size: size,
-              fontColor: textColor,
-            ),
+            if (showWeekText)
+              // Show week labels to left side of heatmap.
+              HeatMapWeekText(
+                margin: margin,
+                fontSize: fontSize,
+                size: size,
+                fontColor: textColor,
+              ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
