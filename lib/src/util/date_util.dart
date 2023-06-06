@@ -1,3 +1,7 @@
+import 'package:intl/intl.dart';
+
+final today = DateTime.now();
+
 class DateUtil {
   static const int DAYS_IN_WEEK = 7;
 
@@ -31,6 +35,22 @@ class DateUtil {
     'Oct',
     'Nov',
     'Dec',
+  ];
+
+  static List<String> SHORT_MONTH_LABEL_JA = [
+    '',
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 1)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 2)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 3)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 4)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 5)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 6)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 7)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 8)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 9)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 10)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 11)),
+    DateFormat('MMM', 'ja').format(DateTime(today.year, 12)),
   ];
 
   static const List<String> WEEK_LABEL = [
